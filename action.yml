@@ -29,6 +29,7 @@ runs:
   using: "composite"
   steps: 
     - run: | 
+        git remote set-url --push origin https://$GITHUB_ACTOR:${{ inputs.token }}@github.com/$GITHUB_REPOSITORY
         git remote add upstream "https://github.com/${{ inputs.upstream }}.git"
         git fetch upstream ${{ inputs.upstream-branch }}
         git remote -v
