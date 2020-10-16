@@ -29,7 +29,8 @@ runs:
   using: "composite"
   steps: 
     - run: | 
-        git remote add -f upstream "https://github.com/${{ inputs.upstream }}.git"
+        git remote add upstream "https://github.com/${{ inputs.upstream }}.git"
+        git fetch upstream ${{ inputs.upstream-branch }}
         git remote -v
         git branch --all
         git config --list
